@@ -7,6 +7,7 @@ A console-based backend Online Shopping System developed using Python and MySQL.
 - User Registration
 - User Login
 - View Products
+- search products
 - Add Products to Cart
 - View Cart
 - Place Orders
