@@ -5,7 +5,8 @@ A console-based backend Online Shopping System developed using Python and MySQL.
 ## Features
 
 - User Registration
-- User Login
+- User Login Authentication
+- Password Hashing using SHA-256
 - View Products
 - search products
 - Add Products to Cart
