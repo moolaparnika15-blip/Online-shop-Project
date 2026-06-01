@@ -1,5 +1,6 @@
-
+# ----------CONNECTING MY SQL AND PYTHON----------
 import mysql.connector
+import hashlib
 
 conn=mysql.connector.connect(
     host="localhost",
@@ -18,9 +19,10 @@ def register():
     name = input("Enter Name: ")
     email = input("Enter Email: ")
     password = input("Enter Password: ")
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
     query = "INSERT INTO users(name,email,password) VALUES(%s,%s,%s)"
-    cursor.execute(query,(name,email,password))
+    cursor.execute(query,(name,email,hashed_password))
     conn.commit()
 
     print("Registration Successful")
@@ -32,9 +34,10 @@ def login():
 
     email = input("Enter Email: ")
     password = input("Enter Password: ")
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
     query = "SELECT user_id FROM users WHERE email=%s AND password=%s"
-    cursor.execute(query,(email,password))
+    cursor.execute(query,(email,hashed_password))
 
     user = cursor.fetchone()
 
