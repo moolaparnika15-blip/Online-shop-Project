@@ -49,6 +49,7 @@ pip install -r requirements.txt
 6. Run the program
 
 python main.py
+
 ## Project Screenshots
 
 ### Registration
@@ -58,13 +59,32 @@ python main.py
 ![Login](Project screenshots/Login.png)
 
 ### View Products
-![Products](Project screenshots/View_Products.png)
+![View Products](Project screenshots/View_Products.png)
+
+### Search Products
+![Search Products](Project screenshots/Search_Products.png)
 
 ### Add To Cart
-![Cart](Project screenshots/Add_to_Cart.png)
+![Add To Cart](Project screenshots/Add_to_Cart.png)
+
+### View Cart
+![View Cart](Project screenshots/View_cart.png)
+
+### Payment
+![Payment](Project screenshots/Payment.png)
+
+### Place Order
+![Place Order](Project screenshots/Place_Order.png)
 
 ### Order History
-![Orders](Project screenshots/Order_History.png)
+![Order History](Project screenshots/Order_History.png)
+
+### Logout
+![Logout](Project screenshots/Logout.png)
+
+### Exit
+![Exit](Project screenshots/Exit.png)
+
 ## Author
 
 Developed using Python and MySQL as a backend project.
