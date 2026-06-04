@@ -61,6 +61,31 @@ def view_products():
     for p in products:
         print("ID:",p[0],"Name:",p[1],"Price:",p[2],"Stock:",p[3])
 
+# ---------------- SEARCH PRODUCT ----------------    
+    
+def search_product():
+
+    keyword = input("Enter Product Name To Search: ")
+
+    query = """
+    SELECT * FROM products
+    WHERE product_name LIKE %s
+    """
+
+    cursor.execute(query, ("%" + keyword + "%",))
+
+    products = cursor.fetchall()
+
+    if products:
+
+        print("\nSearch Results\n")
+
+        for p in products:
+            print("ID:", p[0], "Name:", p[1],
+                  "Price:", p[2], "Stock:", p[3])
+
+    else:
+        print("No Products Found")
 
 # ---------------- ADD TO CART ----------------
 
@@ -102,33 +127,22 @@ def view_cart(user_id):
         
     print("Total cart amount:",total)
     
-# ---------------- SEARCH PRODUCT ----------------    
+# ---------------- REMOVE FROM CART ----------------
     
-def search_product():
+def remove_from_cart(user_id):
 
-    keyword = input("Enter Product Name To Search: ")
+    product_id = int(input("Enter Product ID to remove: "))
 
     query = """
-    SELECT * FROM products
-    WHERE product_name LIKE %s
+    DELETE FROM cart
+    WHERE user_id=%s AND product_id=%s
     """
 
-    cursor.execute(query, ("%" + keyword + "%",))
+    cursor.execute(query, (user_id, product_id))
+    conn.commit()
 
-    products = cursor.fetchall()
-
-    if products:
-
-        print("\nSearch Results\n")
-
-        for p in products:
-            print("ID:", p[0], "Name:", p[1],
-                  "Price:", p[2], "Stock:", p[3])
-
-    else:
-        print("No Products Found")
-
-
+    print("Product removed from cart successfully")
+    
 # ---------------- PLACE ORDER ----------------
 
 def place_order(user_id):
@@ -276,10 +290,11 @@ while True:
                 print("2 Search Product")
                 print("3 Add To Cart")
                 print("4 View Cart")
-                print("5 Place Order")
-                print("6 Payment")
-                print("7 Order History")
-                print("8 Logout")
+                print("5 Remove From Cart")
+                print("6 Place Order")
+                print("7 Payment")
+                print("8 Order History")
+                print("9 Logout")
 
                 ch = input("Enter Choice: ")
 
@@ -294,11 +309,14 @@ while True:
 
                 elif ch == "4":
                     view_cart(user_id)
-
+                    
                 elif ch == "5":
-                    total = place_order(user_id)
+                    remove_from_cart(user_id)
 
                 elif ch == "6":
+                    total = place_order(user_id)
+
+                elif ch == "7":
                 #     make_payment(user_id,total)
                 #     move_to_history(user_id)elif ch == "5":
                    if total > 0:
@@ -309,11 +327,11 @@ while True:
                    else:
                       print("No order placed yet")
 
-                elif ch == "7":
+                elif ch == "8":
                     view_order_history(user_id)
 
-                elif ch == "8":
-                    print("Thank You For Shopping")
+                elif ch == "9":
+                    print("Thank You For Shopping!")
                     break
 
     elif choice == "3":
