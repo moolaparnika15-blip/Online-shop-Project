@@ -71,6 +71,9 @@ python main.py
 ### View Cart
 ![View Cart](Project screenshots/View_cart.png)
 
+### Remove From Cart
+![Remove From Cart](Project screenshots/Remove_From_cart.png)
+
 ### Payment
 ![Payment](Project screenshots/Payment.png)
 
