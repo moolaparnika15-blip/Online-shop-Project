@@ -45,6 +45,7 @@ The application uses MySQL as the backend database and consists of the following
 - Python
 - MySQL
 - SQL
+- Git
 - GitHub
 
 ## Project Structure
