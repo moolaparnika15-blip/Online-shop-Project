@@ -27,7 +27,6 @@ def register():
 
     print("Registration Successful")
 
-
 # ---------------- USER LOGIN ----------------
 
 def login():
@@ -48,6 +47,18 @@ def login():
         print("Invalid Login")
         return None
 
+  # ---------------- ADMIN LOGIN ----------------  
+    
+def admin_login():
+    username = input("Enter Admin Username: ")
+    password = input("Enter Admin Password: ")
+
+    if username == "admin" and password == "admin123":
+        print("Admin Login Successful")
+        return True
+    else:
+        print("Invalid Admin Credentials")
+        return False    
 
 # ---------------- VIEW PRODUCTS ----------------
 
@@ -100,7 +111,6 @@ def add_to_cart(user_id):
     conn.commit()
 
     print("Product Added To Cart")
-
 
 # ---------------- VIEW CART ----------------
 
@@ -199,7 +209,6 @@ def place_order(user_id):
 
     return total
 
-
 # ---------------- PAYMENT ----------------
 
 def make_payment(user_id,total):
@@ -215,7 +224,6 @@ def make_payment(user_id,total):
     conn.commit()
 
     print("Payment Successful")
-
 
 # ---------------- MOVE TO ORDER HISTORY ----------------
 
@@ -235,7 +243,6 @@ def move_to_history(user_id):
     conn.commit()
 
     print("Order Saved In History")
-
 
 # ---------------- VIEW ORDER HISTORY ----------------
 
@@ -261,7 +268,6 @@ def view_order_history(user_id):
         name, qty, date, status = o
         print(name,"Qty:",qty,"Date:",date,"Status:",status)
 
-
 # ---------------- MAIN PROGRAM ----------------
 
 while True:
@@ -269,7 +275,8 @@ while True:
     print("\n===== ONLINE SHOPPING SYSTEM =====")
     print("1 Register")
     print("2 Login")
-    print("3 Exit")
+    print("3 Admin Login")
+    print("4 Exit")
 
     choice = input("Enter Choice: ")
 
@@ -302,7 +309,7 @@ while True:
                     view_products()
                     
                 elif ch == "2":
-                    search_product()
+                    search_product() 
 
                 elif ch == "3":
                     add_to_cart(user_id)
@@ -335,5 +342,29 @@ while True:
                     break
 
     elif choice == "3":
+
+      if admin_login():
+
+        while True:
+
+            print("\n----- ADMIN MENU -----")
+            print("1 View Products")
+    #         print("2 Add Product")
+    #         print("3 Update Stock")
+    #         print("4 Delete Product")
+    #         print("5 View Users")
+    #         print("6 View Orders")
+            print("2 Logout")
+            
+            ch = input("Enter Choice: ")
+
+            if ch == "1":
+                view_products()
+                
+            elif ch == "2":
+                break
+
+
+    elif choice == "4":
         print("Thank You")
         break
