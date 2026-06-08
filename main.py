@@ -48,6 +48,18 @@ def login():
         print("Invalid Login")
         return None
 
+  # ---------------- ADMIN LOGIN ----------------  
+    
+def admin_login():
+    username = input("Enter Admin Username: ")
+    password = input("Enter Admin Password: ")
+
+    if username == "admin" and password == "admin123":
+        print("Admin Login Successful")
+        return True
+    else:
+        print("Invalid Admin Credentials")
+        return False    
 
 # ---------------- VIEW PRODUCTS ----------------
 
