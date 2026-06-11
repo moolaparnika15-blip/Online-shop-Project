@@ -10,6 +10,7 @@ Online Shopping System is a console-based e-commerce application developed using
 | User Login | Authenticates users using username and password |
 | Password Hashing | Secures passwords using SHA-256 hashing |
 | Admin Login | Authenticates admin using secure credentials |
+| Add Product | Admin can add new products to inventory |
 | View Products | Displays all available products |
 | Search Products | Enables users to search products by name |
 | Add to Cart | Adds selected products to the shopping cart |
@@ -92,6 +93,9 @@ python main.py
 
 ### Search Products
 ![Search Products](Project screenshots/Search_Products.png)
+
+### Add Product
+![Add Product](Project screenshots/Add_Product.png)
 
 ### Add To Cart
 ![Add To Cart](Project screenshots/Add_to_Cart.png)
