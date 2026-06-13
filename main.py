@@ -116,6 +116,32 @@ def add_product():
 
     print("Product Added Successfully")
 
+# ---------------- DELETE PRODUCT ----------------  
+
+def delete_product():
+
+    product_id = int(input("Enter Product ID To Delete: "))
+
+    cursor.execute(
+        "SELECT * FROM cart WHERE product_id=%s",
+        (product_id,)
+    )
+
+    item = cursor.fetchone()
+
+    if item:
+        print("Product exists in carts. Cannot delete.")
+        return
+
+    cursor.execute(
+        "DELETE FROM products WHERE product_id=%s",
+        (product_id,)
+    )
+
+    conn.commit()
+
+    print("Product Deleted Successfully")
+
 # ---------------- ADD TO CART ----------------
 
 def add_to_cart(user_id):
@@ -368,11 +394,11 @@ while True:
             print("\n----- ADMIN MENU -----")
             print("1 View Products")
             print("2 Add Product")
-    #         print("3 Update Stock")
+            print("3 Delete Product")
     #         print("4 Delete Product")
     #         print("5 View Users")
     #         print("6 View Orders")
-            print("2 Logout")
+            print("4 Logout")
             
             ch = input("Enter Choice: ")
 
@@ -382,7 +408,10 @@ while True:
             if ch == "2":
                 add_product()
                 
-            elif ch == "3":
+            if ch == "3":
+                delete_product()
+                
+            elif ch == "4":
                 break
 
 
