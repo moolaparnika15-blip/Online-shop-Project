@@ -98,6 +98,9 @@ python main.py
 ### Add Product
 ![Add Product](Project screenshots/Add_Product.png)
 
+### Delete Product
+![Delete Product](Project screenshots/Delete_Product.png)
+
 ### Add To Cart
 ![Add To Cart](Project screenshots/Add_to_Cart.png)
 
