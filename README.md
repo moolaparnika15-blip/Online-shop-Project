@@ -11,6 +11,7 @@ Online Shopping System is a console-based e-commerce application developed using
 | Password Hashing | Secures passwords using SHA-256 hashing |
 | Admin Login | Authenticates admin using secure credentials |
 | Add Product | Admin can add new products to inventory |
+| Delete Product | Admin can remove products from inventory |
 | View Products | Displays all available products |
 | Search Products | Enables users to search products by name |
 | Add to Cart | Adds selected products to the shopping cart |
